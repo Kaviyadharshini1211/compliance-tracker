@@ -1,0 +1,67 @@
+# =========================
+# Node modules
+# =========================
+node_modules/
+server/node_modules/
+client/node_modules/
+
+# =========================
+# Environment variables
+# =========================
+.env
+server/.env
+client/.env
+
+# =========================
+# Build files
+# =========================
+dist/
+build/
+client/dist/
+server/dist/
+
+# =========================
+# Logs
+# =========================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# =========================
+# OS files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Editor / IDE
+# =========================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# =========================
+# Cache files
+# =========================
+.cache/
+.parcel-cache/
+.eslintcache
+
+# =========================
+# Vite specific
+# =========================
+client/.vite/
+
+# =========================
+# Coverage / testing
+# =========================
+coverage/
+
+# =========================
+# Optional: lock files (keep if needed)
+# =========================
+# package-lock.json
+# yarn.lock
