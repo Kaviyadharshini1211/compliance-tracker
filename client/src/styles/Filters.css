@@ -1,0 +1,38 @@
+/* ── Filters.css ────────────────────────────────────────── */
+
+.filters-bar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+/* ── Filter Button ─────────────────────────────────────── */
+
+.filter-btn {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: 1.5px solid #e8e4dc;
+  background: #ffffff;
+  color: #8a8880;
+  cursor: pointer;
+  letter-spacing: 0.03em;
+  transition: all 0.18s ease;
+  outline: none;
+}
+
+.filter-btn:hover {
+  border-color: #2a5cff;
+  color: #2a5cff;
+  background: #eef1ff;
+}
+
+.filter-btn.active {
+  background: #2a5cff;
+  border-color: #2a5cff;
+  color: #ffffff;
+  box-shadow: 0 3px 10px rgba(42, 92, 255, 0.3);
+}

@@ -1,19 +1,21 @@
 import axios from "axios";
+import "../styles/TaskList.css";
 
-const TaskList = ({ tasks, filters, refreshTasks }) => {
+const TaskList = ({ tasks, filters, search, sortBy, refreshTasks }) => {
 
-  const isOverdue = (task) => {
-    return (
-      task.status === "Pending" &&
-      new Date(task.due_date) < new Date()
-    );
-  };
+  const isOverdue = (task) =>
+    task.status === "Pending" && new Date(task.due_date) < new Date();
 
-  // ✅ apply filters
-  const filteredTasks = tasks.filter(task => {
+  const filteredTasks = tasks.filter((task) => {
     if (filters.status && task.status !== filters.status) return false;
     if (filters.category && task.category !== filters.category) return false;
+    if (search && !task.title.toLowerCase().includes(search.toLowerCase())) return false;
     return true;
+  });
+
+  const sortedTasks = [...filteredTasks].sort((a, b) => {
+    if (sortBy === "due_date") return new Date(a.due_date) - new Date(b.due_date);
+    return 0;
   });
 
   const toggleStatus = async (task) => {
@@ -21,38 +23,45 @@ const TaskList = ({ tasks, filters, refreshTasks }) => {
       await axios.put(`http://localhost:5000/api/tasks/${task._id}`, {
         status: task.status === "Pending" ? "Completed" : "Pending",
       });
-
-      refreshTasks(); // ✅ no reload
+      refreshTasks();
     } catch (err) {
       console.error(err);
     }
   };
 
-  // ✅ empty state
-  if (!filteredTasks.length) {
-    return <p>No tasks found</p>;
+  if (!sortedTasks.length) {
+    return <p className="task-list-empty">No tasks found</p>;
   }
 
   return (
     <div>
-      {filteredTasks.map(task => (
+      {sortedTasks.map((task) => (
         <div
           key={task._id}
-          style={{
-            border: "1px solid #e5e7eb",
-            padding: "12px",
-            borderRadius: "8px",
-            marginBottom: "10px",
-            background: isOverdue(task) ? "#fee2e2" : "#ffffff"
-          }}
+          className={`task-card ${isOverdue(task) ? "overdue" : ""}`}
         >
-          <h4>{task.title}</h4>
-          <p><strong>Category:</strong> {task.category || "N/A"}</p>
-          <p>Due: {task.due_date?.slice(0, 10)}</p>
+          <div className="task-card-header">
+            <h4 className="task-title">{task.title}</h4>
 
-          <button onClick={() => toggleStatus(task)}>
-            {task.status}
-          </button>
+            <button
+              className={`task-toggle-btn ${task.status === "Completed" ? "completed" : "pending"}`}
+              onClick={() => toggleStatus(task)}
+            >
+              {task.status}
+            </button>
+          </div>
+
+          <div className="task-meta">
+            <div className="task-meta-item">
+              Category: <span>{task.category || "N/A"}</span>
+            </div>
+            <div className="task-meta-item">
+              Due: <span>{task.due_date?.slice(0, 10)}</span>
+            </div>
+            {isOverdue(task) && (
+              <span className="task-overdue-badge">Overdue</span>
+            )}
+          </div>
         </div>
       ))}
     </div>

@@ -1,0 +1,115 @@
+/* ── TaskList.css ───────────────────────────────────────── */
+
+.task-list-empty {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  text-align: center;
+  color: #8a8880;
+  font-size: 0.9rem;
+  padding: 40px 0;
+  font-style: italic;
+}
+
+/* ── Task Card ─────────────────────────────────────────── */
+
+.task-card {
+  background: #ffffff;
+  border: 1px solid #e8e4dc;
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.2s ease, transform 0.15s ease;
+  position: relative;
+}
+
+.task-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.09);
+  transform: translateY(-1px);
+}
+
+.task-card.overdue {
+  border-left: 3px solid #e8420a;
+  background: #fffcfb;
+}
+
+/* ── Card Header ───────────────────────────────────────── */
+
+.task-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.task-title {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 0.97rem;
+  font-weight: 600;
+  color: #1a1a18;
+  margin: 0;
+  line-height: 1.35;
+}
+
+/* ── Status Toggle Button ──────────────────────────────── */
+
+.task-toggle-btn {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  padding: 5px 13px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: opacity 0.15s ease, transform 0.1s ease;
+}
+
+.task-toggle-btn:hover {
+  opacity: 0.85;
+  transform: scale(0.97);
+}
+
+.task-toggle-btn.pending {
+  background: #fff4e0;
+  color: #b05a00;
+}
+
+.task-toggle-btn.completed {
+  background: #edfaf3;
+  color: #1a9e5c;
+}
+
+/* ── Meta Row ──────────────────────────────────────────── */
+
+.task-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.task-meta-item {
+  font-size: 0.8rem;
+  color: #8a8880;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+}
+
+.task-meta-item span {
+  color: #1a1a18;
+  font-weight: 500;
+}
+
+.task-overdue-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: #e8420a;
+  color: #ffffff;
+  padding: 3px 9px;
+  border-radius: 20px;
+}

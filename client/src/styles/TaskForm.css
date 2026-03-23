@@ -1,0 +1,83 @@
+/* ── TaskForm.css ───────────────────────────────────────── */
+
+.task-form {
+  background: #ffffff;
+  border: 1px solid #e8e4dc;
+  border-radius: 10px;
+  padding: 22px 20px;
+  margin-top: 28px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.task-form h3 {
+  font-family: var(--font-display, 'DM Serif Display', Georgia, serif);
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #1a1a18;
+  margin: 0 0 16px;
+  letter-spacing: -0.01em;
+}
+
+/* ── Fields Row ────────────────────────────────────────── */
+
+.task-form-fields {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.task-form-input {
+  flex: 1;
+  min-width: 160px;
+  padding: 9px 14px;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 0.875rem;
+  border: 1px solid #e8e4dc;
+  border-radius: 8px;
+  background: #f9f8f5;
+  color: #1a1a18;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.task-form-input::placeholder {
+  color: #b0aca4;
+}
+
+.task-form-input:focus {
+  border-color: #2a5cff;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(42, 92, 255, 0.1);
+}
+
+.task-form-input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0.45;
+  cursor: pointer;
+}
+
+/* ── Submit Button ─────────────────────────────────────── */
+
+.task-form-btn {
+  padding: 9px 22px;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 0.875rem;
+  font-weight: 600;
+  background: #2a5cff;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+  letter-spacing: 0.01em;
+}
+
+.task-form-btn:hover {
+  background: #1a4aee;
+  box-shadow: 0 4px 14px rgba(42, 92, 255, 0.35);
+}
+
+.task-form-btn:active {
+  transform: scale(0.97);
+}

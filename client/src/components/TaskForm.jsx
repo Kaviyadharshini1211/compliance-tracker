@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import "../styles/TaskForm.css";
 
 const TaskForm = ({ clientId, refreshTasks }) => {
   const [title, setTitle] = useState("");
@@ -10,7 +11,6 @@ const TaskForm = ({ clientId, refreshTasks }) => {
       alert("Please select a client first");
       return;
     }
-
     if (!title || !dueDate) {
       alert("Title and due date are required");
       return;
@@ -22,36 +22,37 @@ const TaskForm = ({ clientId, refreshTasks }) => {
         title,
         due_date: dueDate,
       });
-
-      // ✅ clear form
       setTitle("");
       setDueDate("");
-
-      refreshTasks(); // ✅ no reload
+      refreshTasks();
     } catch (err) {
       console.error(err);
     }
   };
 
   return (
-    <div style={{ marginTop: "20px" }}>
+    <div className="task-form">
       <h3>Add Task</h3>
 
-      <input
-        placeholder="Task title"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        style={{ marginRight: "10px" }}
-      />
+      <div className="task-form-fields">
+        <input
+          className="task-form-input"
+          placeholder="Task title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
 
-      <input
-        type="date"
-        value={dueDate}
-        onChange={(e) => setDueDate(e.target.value)}
-        style={{ marginRight: "10px" }}
-      />
+        <input
+          className="task-form-input"
+          type="date"
+          value={dueDate}
+          onChange={(e) => setDueDate(e.target.value)}
+        />
 
-      <button onClick={handleSubmit}>Add</button>
+        <button className="task-form-btn" onClick={handleSubmit}>
+          Add Task
+        </button>
+      </div>
     </div>
   );
 };
