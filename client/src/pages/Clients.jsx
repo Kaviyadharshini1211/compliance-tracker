@@ -5,7 +5,7 @@ const Clients = ({ setSelectedClient }) => {
   const [clients, setClients] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/clients")
+    axios.get("https://compliance-tracker-h2z0.onrender.com/api/clients")
       .then(res => setClients(res.data));
   }, []);
 
