@@ -20,7 +20,7 @@ const TaskList = ({ tasks, filters, search, sortBy, refreshTasks }) => {
 
   const toggleStatus = async (task) => {
     try {
-      await axios.put(`https://compliance-tracker-h2z0.onrender.com/api/tasks/${task._id}`, {
+      await axios.put(`https://compliance-tracker-1-nvx9.onrender.com/api/tasks/${task._id}`, {
         status: task.status === "Pending" ? "Completed" : "Pending",
       });
       refreshTasks();

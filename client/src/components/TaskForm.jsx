@@ -17,7 +17,7 @@ const TaskForm = ({ clientId, refreshTasks }) => {
     }
 
     try {
-      await axios.post("https://compliance-tracker-h2z0.onrender.com/api/tasks", {
+      await axios.post("https://compliance-tracker-1-nvx9.onrender.com/api/tasks", {
         client_id: clientId,
         title,
         due_date: dueDate,

@@ -5,7 +5,7 @@ const Clients = ({ setSelectedClient }) => {
   const [clients, setClients] = useState([]);
 
   useEffect(() => {
-    axios.get("https://compliance-tracker-h2z0.onrender.com/api/clients")
+    axios.get("https://compliance-tracker-1-nvx9.onrender.com/api/clients")
       .then(res => setClients(res.data));
   }, []);
 

@@ -14,7 +14,7 @@ const Tasks = ({ clientId }) => {
   const fetchTasks = () => {
     if (clientId) {
       axios
-        .get(`https://compliance-tracker-h2z0.onrender.com/api/tasks/${clientId}`)
+        .get(`https://compliance-tracker-1-nvx9.onrender.com/api/tasks/${clientId}`)
         .then((res) => setTasks(res.data))
         .catch((err) => console.error(err));
     } else {
