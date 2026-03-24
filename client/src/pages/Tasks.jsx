@@ -4,7 +4,7 @@ import TaskList from "../components/TaskList";
 import TaskForm from "../components/TaskForm";
 import Filters from "../components/Filters";
 import "../styles/Tasks.css";
-
+import BASE_URL from "../api";
 const Tasks = ({ clientId }) => {
   const [tasks, setTasks] = useState([]);
   const [filters, setFilters] = useState({});
@@ -14,7 +14,7 @@ const Tasks = ({ clientId }) => {
   const fetchTasks = () => {
     if (clientId) {
       axios
-        .get(`https://compliance-tracker-1-nvx9.onrender.com/api/tasks/${clientId}`)
+        .get(`${BASE_URL}/api/tasks/${clientId}`)
         .then((res) => setTasks(res.data))
         .catch((err) => console.error(err));
     } else {

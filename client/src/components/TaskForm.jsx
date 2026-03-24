@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import "../styles/TaskForm.css";
-
+import BASE_URL from "../api";
 const TaskForm = ({ clientId, refreshTasks }) => {
   const [title, setTitle] = useState("");
   const [dueDate, setDueDate] = useState("");
@@ -17,7 +17,7 @@ const TaskForm = ({ clientId, refreshTasks }) => {
     }
 
     try {
-      await axios.post("https://compliance-tracker-1-nvx9.onrender.com/api/tasks", {
+      await axios.post(`${BASE_URL}/api/tasks`, {
         client_id: clientId,
         title,
         due_date: dueDate,

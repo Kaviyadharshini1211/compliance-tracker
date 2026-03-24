@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-
+import BASE_URL from "../api";
 const Clients = ({ setSelectedClient }) => {
   const [clients, setClients] = useState([]);
 
   useEffect(() => {
-    axios.get("https://compliance-tracker-1-nvx9.onrender.com/api/clients")
+    axios.get(`${BASE_URL}/api/clients`)
       .then(res => setClients(res.data));
   }, []);
 

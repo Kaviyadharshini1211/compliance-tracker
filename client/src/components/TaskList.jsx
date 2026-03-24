@@ -1,6 +1,6 @@
 import axios from "axios";
 import "../styles/TaskList.css";
-
+import BASE_URL from "../api";
 const TaskList = ({ tasks, filters, search, sortBy, refreshTasks }) => {
 
   const isOverdue = (task) =>
@@ -20,7 +20,7 @@ const TaskList = ({ tasks, filters, search, sortBy, refreshTasks }) => {
 
   const toggleStatus = async (task) => {
     try {
-      await axios.put(`https://compliance-tracker-1-nvx9.onrender.com/api/tasks/${task._id}`, {
+      await axios.put(`${BASE_URL}/api/tasks/${task._id}`, {
         status: task.status === "Pending" ? "Completed" : "Pending",
       });
       refreshTasks();
